@@ -1,4 +1,5 @@
 import sys
+import parser
 
 def openFile(fileName):
     try:
@@ -10,7 +11,18 @@ def openFile(fileName):
         print("File not found, check the path variable or name")
         exit()
 
-f= openFile("assembler.asm")
-print(f.name)
+with openFile("assembler.asm") as f:
+
+    while True:
+        line=f.readline()
+        if "//" in line:
+            i= line.find("//")
+            line=line[0:i]
+
+        if not line:
+            break
+
+        print(line.strip())
+
 
 
