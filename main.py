@@ -1,5 +1,5 @@
 import sys
-import parser
+from parser import Parser
 
 def openFile(fileName):
     try:
@@ -11,11 +11,11 @@ def openFile(fileName):
         print("File not found, check the path variable or name")
         exit()
 
-flag=False
+#flag=False
 def instr(line):
-    if line[0]=="@":
-        flag=True
-        temp=bin(line[1:])
+    if "@" in line:
+        #flag=True
+        temp=bin(str.strip(line[2:]))
         binary=temp[2:]
         return "0"+binary
     else:
@@ -31,6 +31,12 @@ with openFile("assembler.asm") as f:
         if not line:
             break
         x=instr(line)
+        if x[0]=="0":
+            out=x
+        elif x[0]=="1":
+            parser=Parser(line)
+            c=parser.comp()
+            print(line)
 
 
 

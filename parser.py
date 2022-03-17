@@ -1,11 +1,18 @@
-class parser:
-    def __init__(self):
-        self.flag=False
-
+class Parser:
+    def __init__(self, line):
+        self.line=line
 
     def comp(self):
-        if self.flag==True:
-            pass
+        flag=False
+        c=""
+        for i in range(len(self.line)):
+            if self.line[i]=="=":
+                flag=True
+            if flag==True:
+                c+=self.line[i]
+        return c
+
+
     def dest(self):
         pass
     def jmp(self):
