@@ -6,11 +6,13 @@ class Parser:
         flag=False
         c=""
         for i in range(len(self.line)):
-            if self.line[i]=="=":
+            if self.line[i-1]=="="or self.line[i-1]==";":
                 flag=True
             if flag==True:
                 c+=self.line[i]
-        return c
+            if self.line[i]==" "and flag==True:
+                break
+        return c.strip()
 
 
     def dest(self):
