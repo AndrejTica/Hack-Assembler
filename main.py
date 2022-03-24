@@ -40,7 +40,7 @@ with openFile("assembler.asm") as f:
             out=x
         elif x[0]=="1":
             parser=Parser(line)
-            c=parser.comp()
+            c=parser.jmp()
             print(c)
         counter=counter+1
         if counter==num_lines+1:
