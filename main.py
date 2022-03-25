@@ -18,6 +18,12 @@ def instr(line):
         index=line.index("@")
         temp=bin(int(line[index+1:]))
         binary=temp[2:]
+        lenght=len(binary)
+        dif=15-lenght
+        temp1=""
+        for x in range(dif):
+            temp1+="0"
+        binary=temp1+binary
         return "0"+binary
     else:
         return "111"
@@ -38,10 +44,11 @@ with openFile("assembler.asm") as f:
         x=instr(line)
         if x[0]=="0":
             out=x
+            print(out)
         elif x[0]=="1":
             parser=Parser(line)
             c=parser.jmp()
-            print(c)
+
         counter=counter+1
         if counter==num_lines+1:
             break

@@ -30,7 +30,7 @@ class Parser:
 
         return d.strip()
 
-    #not working properly yet
+
     def jmp(self):
         flag = False
         j = ""
@@ -42,7 +42,7 @@ class Parser:
             if self.line[i]==" "and flag==True:
                 break
 
-            return j.strip()
+        return j.strip()
 
 
 
