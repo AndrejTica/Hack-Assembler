@@ -1,5 +1,6 @@
 import sys
 from parser import Parser
+from code import Code
 
 def openFile(fileName):
     try:
@@ -47,13 +48,14 @@ with openFile("assembler.asm") as f:
             #print(out)
         elif x[0]=="1":
             parser=Parser(line)
+            code=Code(line)
+
             j=parser.jmp()
             c=parser.comp()
             d=parser.dest()
 
-            print(d)
-            print(c)
-            print(j)
+            dd=code.dest()
+            print(dd)
 
 
 

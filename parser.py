@@ -37,7 +37,7 @@ class Parser:
                 break
             if self.line[i]==";":
                 if flag==False:
-                    return None
+                    return "None!"
                 break
             d+=self.line[i]
 
