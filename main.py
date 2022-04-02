@@ -55,8 +55,7 @@ with openFile("assembler.asm") as f:
             print(c)
             print(j)
 
-            j=""
-            c=""
+
 
         counter=counter+1
         if counter==num_lines+1:
