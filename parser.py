@@ -4,12 +4,25 @@ class Parser:
 
     def comp(self):
         flag=False
+        flag2=False
+        count=0
         c=""
         for i in range(len(self.line)):
-            if self.line[i-1]=="="or self.line[i-1]==";":
+            if self.line[i-1]=="=":
                 flag=True
+            if self.line[i]==";":
+                flag2=True
+                count=i
             if flag==True:
-                c+=self.line[i]
+                if self.line[i]==";":
+                    return c.strip()
+                c += self.line[i]
+            if flag2==True:
+                for j in range(count):
+                    c+=self.line[j]
+
+                return c.strip()
+
             if self.line[i]==" "and flag==True:
                 break
         return c.strip()
